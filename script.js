@@ -2,98 +2,106 @@ const loader = document.getElementById('loader');
 const header = document.getElementById('header');
 const menuBtn = document.getElementById('menuBtn');
 const nav = document.getElementById('nav');
-const navLinks = document.querySelectorAll('.nav a');
-const heroItems = document.querySelectorAll('.reveal-hero');
-const revealItems = document.querySelectorAll('.reveal');
-const filters = document.querySelectorAll('.filter');
-const projectCards = document.querySelectorAll('.project-card');
+const navLinks = [...document.querySelectorAll('.nav a[href^="#"]')];
+const revealElements = document.querySelectorAll('.reveal');
+const filterButtons = document.querySelectorAll('.filter');
+const galleryCards = document.querySelectorAll('.gallery-card');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightboxImage');
+const lightboxClose = document.getElementById('lightboxClose');
 
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    loader.classList.add('is-hidden');
-    heroItems.forEach((item, index) => {
-      setTimeout(() => item.classList.add('is-visible'), index * 180);
-    });
-  }, 650);
+  window.setTimeout(() => loader?.classList.add('is-hidden'), 350);
 });
 
-const toggleHeader = () => {
-  header.classList.toggle('is-scrolled', window.scrollY > 40);
+const closeMenu = () => {
+  nav?.classList.remove('is-open');
+  menuBtn?.classList.remove('is-active');
+  menuBtn?.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('menu-open');
 };
 
-toggleHeader();
-window.addEventListener('scroll', toggleHeader, { passive: true });
-
-menuBtn.addEventListener('click', () => {
-  nav.classList.toggle('is-open');
+menuBtn?.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('is-open');
+  menuBtn.classList.toggle('is-active', isOpen);
+  menuBtn.setAttribute('aria-expanded', String(isOpen));
+  document.body.classList.toggle('menu-open', isOpen);
 });
 
-navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('is-open');
-  });
+navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+document.addEventListener('click', event => {
+  if (!nav?.contains(event.target) && !menuBtn?.contains(event.target)) closeMenu();
 });
 
-const revealObserver = new IntersectionObserver((entries) => {
+const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 24);
+updateHeader();
+window.addEventListener('scroll', updateHeader, { passive: true });
+
+const revealObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('is-visible');
       revealObserver.unobserve(entry.target);
     }
   });
-}, {
-  threshold: 0.16,
-  rootMargin: '0px 0px -60px 0px'
-});
+}, { threshold: 0.12, rootMargin: '0px 0px -45px' });
 
-revealItems.forEach(item => revealObserver.observe(item));
+revealElements.forEach(element => revealObserver.observe(element));
 
-filters.forEach(button => {
+const sections = [...document.querySelectorAll('main section[id]')];
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    navLinks.forEach(link => {
+      link.classList.toggle('is-active', link.getAttribute('href') === `#${entry.target.id}`);
+    });
+  });
+}, { rootMargin: '-35% 0px -58% 0px', threshold: 0 });
+
+sections.forEach(section => sectionObserver.observe(section));
+
+filterButtons.forEach(button => {
   button.addEventListener('click', () => {
-    filters.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
+    const filter = button.dataset.filter;
+    filterButtons.forEach(item => item.classList.remove('is-active'));
+    button.classList.add('is-active');
 
-    const selected = button.dataset.filter;
-
-    projectCards.forEach(card => {
-      const match = selected === 'all' || card.dataset.category === selected;
-      card.classList.toggle('is-hidden', !match);
+    galleryCards.forEach(card => {
+      const shouldShow = filter === 'all' || card.dataset.category === filter;
+      card.classList.toggle('is-hidden', !shouldShow);
     });
   });
 });
 
-const sections = document.querySelectorAll('section[id]');
-
-const activeSection = () => {
-  const scrollPosition = window.scrollY + 120;
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-    const sectionId = section.getAttribute('id');
-    const activeLink = document.querySelector(`.nav a[href="#${sectionId}"]`);
-
-    if (!activeLink) return;
-
-    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-      navLinks.forEach(link => link.classList.remove('is-active'));
-      activeLink.classList.add('is-active');
-    }
-  });
+const openLightbox = card => {
+  const source = card.dataset.image || card.querySelector('img')?.src;
+  if (!source) return;
+  lightboxImage.src = source;
+  lightbox.classList.add('is-open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('lightbox-open');
+  lightboxClose.focus();
 };
 
-window.addEventListener('scroll', activeSection, { passive: true });
-activeSection();
+const closeLightbox = () => {
+  lightbox.classList.remove('is-open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('lightbox-open');
+  lightboxImage.src = '';
+};
 
-let lastScroll = window.scrollY;
-const heroImage = document.querySelector('.hero__media img');
+galleryCards.forEach(card => card.addEventListener('click', () => openLightbox(card)));
+lightboxClose?.addEventListener('click', closeLightbox);
+lightbox?.addEventListener('click', event => {
+  if (event.target === lightbox) closeLightbox();
+});
 
-window.addEventListener('scroll', () => {
-  const currentScroll = window.scrollY;
-
-  if (heroImage && currentScroll < window.innerHeight) {
-    heroImage.style.transform = `scale(1.1) translateY(${currentScroll * 0.08}px)`;
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    closeMenu();
+    if (lightbox?.classList.contains('is-open')) closeLightbox();
   }
+});
 
-  lastScroll = currentScroll;
-}, { passive: true });
+document.getElementById('year').textContent = new Date().getFullYear();

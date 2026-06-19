@@ -3,39 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kompleksowe Remonty 4 ŚCIANY+ | Usługi remontowo-budowlane Chorzów</title>
-  <meta name="description" content="Kompleksowe remonty mieszkań, domów i lokali w Chorzowie oraz okolicach. Wykończenia wnętrz, łazienki, kuchnie, elektryka, hydraulika, gładzie, malowanie i podłogi." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="Kompleksowe remonty mieszkań, domów i lokali w Chorzowie i okolicy. Remonty generalne, łazienki, kuchnie, płytki, malowanie, elektryka i hydraulika." />
+  <title>Kompleksowe Remonty 4 ŚCIANY+ | Chorzów</title>
+
+  <link rel="icon" type="image/jpeg" href="4 sciany logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="loader" id="loader">
-    <div class="loader__mark">
-      <span>4</span>
-      <small>ŚCIANY+</small>
-    </div>
+  <div class="loader" id="loader" aria-hidden="true">
+    <img src="4 sciany logo.jpg" alt="" />
   </div>
 
   <header class="site-header" id="header">
-    <a href="#home" class="brand" aria-label="Kompleksowe Remonty 4 ŚCIANY+">
-      <span class="brand__icon">4</span>
-      <span class="brand__text">
-        <strong>4 ŚCIANY+</strong>
-        <small>Kompleksowe remonty</small>
-      </span>
+    <a class="brand" href="#home" aria-label="4 ŚCIANY+ — strona główna">
+      <img src="4 sciany logo.jpg" alt="Logo Kompleksowe Remonty 4 ŚCIANY+" />
     </a>
 
-    <nav class="nav" id="nav">
+    <nav class="nav" id="nav" aria-label="Główna nawigacja">
       <a href="#o-nas">O nas</a>
       <a href="#uslugi">Usługi</a>
       <a href="#realizacje">Realizacje</a>
+      <a href="#proces">Współpraca</a>
       <a href="#opinie">Opinie</a>
-      <a href="#kontakt">Kontakt</a>
+      <a class="nav__cta" href="#kontakt">Bezpłatna wycena</a>
     </nav>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu">
+    <button class="menu-btn" id="menuBtn" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav">
       <span></span>
       <span></span>
     </button>
@@ -44,227 +41,232 @@
   <main>
     <section class="hero" id="home">
       <div class="hero__media" aria-hidden="true">
-        <img src="ChatGPT Image 16 cze 2026, 20_00_06 (1).png" alt="Remont wnętrza w jasnym mieszkaniu" />
+        <img src="ChatGPT Image 16 cze 2026, 20_00_06 (1).png" alt="" />
       </div>
-      <div class="hero__overlay"></div>
+      <div class="hero__shade" aria-hidden="true"></div>
 
       <div class="hero__content reveal-hero">
-        <p class="eyebrow">Usługi remontowo-budowlane w Chorzowie</p>
-        <h1>Remont od A do Z, wykonany solidnie i terminowo.</h1>
-        <p class="hero__lead">Kompleksowe remonty mieszkań, domów i lokali. Łączymy fachowe wykonanie, porządek na budowie i dopracowane detale wykończenia.</p>
+        <p class="eyebrow eyebrow--light">Usługi remontowo-budowlane • Chorzów i okolice</p>
+        <h1>Tworzymy wnętrza, do których chce się wracać.</h1>
+        <p class="hero__lead">Kompleksowe remonty mieszkań, domów i lokali — od pierwszych prac rozbiórkowych po starannie wykończony detal.</p>
 
         <div class="hero__actions">
-          <a href="#uslugi" class="btn btn--primary">Zobacz usługi</a>
-          <a href="#kontakt" class="btn btn--ghost">Poproś o wycenę</a>
+          <a class="btn btn--primary" href="#kontakt">Poproś o wycenę</a>
+          <a class="btn btn--glass" href="#realizacje">Zobacz realizacje</a>
         </div>
 
-        <div class="hero__stats">
-          <div>
-            <strong>5,0</strong>
-            <span>ocena klientów</span>
-          </div>
-          <div>
-            <strong>7</strong>
-            <span>opinii</span>
-          </div>
-          <div>
-            <strong>58+</strong>
-            <span>zdjęć realizacji</span>
-          </div>
+        <div class="hero__stats" aria-label="Najważniejsze informacje o firmie">
+          <div><strong>5,0</strong><span>ocena klientów</span></div>
+          <div><strong>7</strong><span>opinii</span></div>
+          <div><strong>58+</strong><span>zdjęć realizacji</span></div>
         </div>
       </div>
 
-      <div class="hero__card reveal-hero delay-2">
-        <span>Kompleksowe remonty</span>
-        <strong>4 ŚCIANY+</strong>
-        <p>Remonty, wykończenia, instalacje, kuchnie, łazienki i prace pod klucz.</p>
-      </div>
+      <aside class="hero__brand-card reveal-hero delay-2" aria-label="Logo firmy">
+        <img src="4 sciany logo.jpg" alt="4 ŚCIANY+ Remonty Kompleksowe" />
+        <div>
+          <span>Od projektu do odbioru</span>
+          <strong>Jeden wykonawca. Pełny zakres prac.</strong>
+        </div>
+      </aside>
+
+      <a class="hero__scroll" href="#o-nas" aria-label="Przejdź do kolejnej sekcji">
+        <span></span>
+      </a>
+    </section>
+
+    <section class="trust-bar" aria-label="Najważniejsze zalety">
+      <div><span>01</span><strong>Terminowo</strong><small>zgodnie z ustalonym harmonogramem</small></div>
+      <div><span>02</span><strong>Kompleksowo</strong><small>wszystkie etapy remontu w jednej ekipie</small></div>
+      <div><span>03</span><strong>Dokładnie</strong><small>dbałość o porządek i każdy detal</small></div>
     </section>
 
     <section class="section about" id="o-nas">
       <div class="section__head reveal">
         <p class="eyebrow">O firmie</p>
-        <h2>Ekipa remontowa, która prowadzi prace sprawnie, czysto i kompleksowo.</h2>
+        <h2>Remont bez chaosu, niedomówień i przypadkowych decyzji.</h2>
       </div>
 
       <div class="about__grid">
-        <div class="about__text reveal">
-          <p>Kompleksowe Remonty 4 ŚCIANY+ to firma remontowo-budowlana z Chorzowa. Wykonujemy remonty mieszkań, domów i lokali użytkowych, dbając o każdy etap pracy — od przygotowania powierzchni po końcowe wykończenie detali.</p>
-          <p>Klienci doceniają terminowość, dobry kontakt, porządek po zakończeniu prac oraz fachową pomoc przy wyborze materiałów.</p>
+        <div class="about__copy reveal">
+          <p class="lead">Kompleksowe Remonty 4 ŚCIANY+ to firma remontowo-budowlana z Chorzowa. Realizujemy prace w mieszkaniach, domach i lokalach użytkowych.</p>
+          <p>Prowadzimy inwestycję etapami, pomagamy w doborze rozwiązań i dbamy o czytelną komunikację. Dzięki temu klient wie, co dzieje się na budowie i czego może oczekiwać na kolejnym etapie.</p>
+          <a class="text-link" href="#proces">Zobacz, jak pracujemy <span>→</span></a>
         </div>
 
-        <div class="about__features reveal delay-1">
-          <div>
-            <span>01</span>
-            <strong>Terminowość</strong>
-            <p>Realizacja prac zgodnie z ustaleniami i harmonogramem.</p>
-          </div>
-          <div>
-            <span>02</span>
-            <strong>Kompleksowość</strong>
-            <p>Remonty, elektryka, hydraulika, płytki, gładzie, malowanie i podłogi.</p>
-          </div>
-          <div>
-            <span>03</span>
-            <strong>Staranność</strong>
-            <p>Dopracowane detale i estetyczne wykończenie pomieszczeń.</p>
+        <div class="about__image reveal delay-1">
+          <img src="ChatGPT Image 16 cze 2026, 20_00_06 (2).png" alt="Wykonywanie gładzi na ścianie" loading="lazy" />
+          <div class="about__badge">
+            <strong>4 ŚCIANY+</strong>
+            <span>remont od A do Z</span>
           </div>
         </div>
       </div>
     </section>
 
     <section class="section services" id="uslugi">
-      <div class="section__head reveal">
-        <p class="eyebrow">Oferta</p>
-        <h2>Zakres prac remontowych</h2>
+      <div class="section__head section__head--split reveal">
+        <div>
+          <p class="eyebrow">Oferta</p>
+          <h2>Wszystko, czego wymaga kompleksowy remont.</h2>
+        </div>
+        <p>Prace przygotowawcze, instalacje, wykończenie i montaż — bez konieczności szukania kilku oddzielnych ekip.</p>
       </div>
 
       <div class="services__grid">
         <article class="service-card reveal">
-          <span>01</span>
-          <h3>Remonty generalne</h3>
-          <p>Kompleksowe remonty mieszkań, domów i lokali od demontażu po finalne wykończenie.</p>
+          <span>01</span><h3>Remonty generalne</h3>
+          <p>Demontaż, przygotowanie wnętrza, przebudowa i pełne wykończenie pod klucz.</p>
         </article>
         <article class="service-card reveal delay-1">
-          <span>02</span>
-          <h3>Łazienki i kuchnie</h3>
-          <p>Układanie płytek, montaż armatury, zabudowy, instalacje i precyzyjne wykończenia.</p>
+          <span>02</span><h3>Łazienki i kuchnie</h3>
+          <p>Płytki, zabudowy, armatura, biały montaż oraz precyzyjne prace wykończeniowe.</p>
         </article>
         <article class="service-card reveal delay-2">
-          <span>03</span>
-          <h3>Gładzie i malowanie</h3>
-          <p>Przygotowanie ścian, szpachlowanie, tynkowanie, gruntowanie i malowanie.</p>
+          <span>03</span><h3>Gładzie i malowanie</h3>
+          <p>Naprawa podłoża, tynkowanie, szpachlowanie, gruntowanie i malowanie.</p>
         </article>
         <article class="service-card reveal">
-          <span>04</span>
-          <h3>Podłogi i płytki</h3>
-          <p>Montaż paneli, podłóg drewnianych, gresu, płytek ściennych i podłogowych.</p>
+          <span>04</span><h3>Podłogi i płytki</h3>
+          <p>Montaż paneli i podłóg, układanie gresu oraz płytek ściennych i podłogowych.</p>
         </article>
         <article class="service-card reveal delay-1">
-          <span>05</span>
-          <h3>Elektryka</h3>
-          <p>Prace instalacyjne, przygotowanie punktów, osprzęt, oświetlenie i modernizacje.</p>
+          <span>05</span><h3>Elektryka</h3>
+          <p>Modernizacja instalacji, nowe punkty, osprzęt, oświetlenie i przygotowanie przyłączy.</p>
         </article>
         <article class="service-card reveal delay-2">
-          <span>06</span>
-          <h3>Hydraulika</h3>
-          <p>Montaż i modernizacja instalacji wodno-kanalizacyjnych oraz biały montaż.</p>
+          <span>06</span><h3>Hydraulika</h3>
+          <p>Instalacje wodno-kanalizacyjne, podejścia, montaż urządzeń i biały montaż.</p>
         </article>
       </div>
     </section>
 
     <section class="section gallery" id="realizacje">
-      <div class="section__head reveal">
-        <p class="eyebrow">Realizacje</p>
-        <h2>Prace remontowe i wykończeniowe</h2>
-      </div>
-
-      <div class="gallery__filters reveal">
-        <button class="filter active" data-filter="all">Wszystkie</button>
-        <button class="filter" data-filter="remont">Remont</button>
-        <button class="filter" data-filter="wykonczenie">Wykończenie</button>
-        <button class="filter" data-filter="instalacje">Instalacje</button>
+      <div class="section__head section__head--split reveal">
+        <div>
+          <p class="eyebrow">Realizacje</p>
+          <h2>Od surowego wnętrza do gotowego efektu.</h2>
+        </div>
+        <div class="filters" role="group" aria-label="Filtrowanie realizacji">
+          <button class="filter is-active" type="button" data-filter="all">Wszystkie</button>
+          <button class="filter" type="button" data-filter="remont">Remont</button>
+          <button class="filter" type="button" data-filter="wykonczenie">Wykończenie</button>
+          <button class="filter" type="button" data-filter="instalacje">Instalacje</button>
+        </div>
       </div>
 
       <div class="gallery__grid">
-        <article class="project-card reveal" data-category="remont">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_06 (1).png" alt="Remont wnętrza przed wykończeniem" />
-          <div><span>Remont</span><h3>Przygotowanie wnętrza</h3></div>
-        </article>
-        <article class="project-card reveal delay-1" data-category="remont">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_06 (2).png" alt="Wyrównywanie ściany tynkiem" />
-          <div><span>Ściany</span><h3>Gładzie i tynki</h3></div>
-        </article>
-        <article class="project-card reveal delay-2" data-category="wykonczenie">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_07 (3).png" alt="Nowoczesna łazienka po remoncie" />
-          <div><span>Łazienka</span><h3>Efekt końcowy</h3></div>
-        </article>
-        <article class="project-card reveal" data-category="wykonczenie">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_07 (4).png" alt="Układanie dużych płytek na podłodze" />
-          <div><span>Płytki</span><h3>Precyzyjne układanie</h3></div>
-        </article>
-        <article class="project-card reveal delay-1" data-category="remont">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_07 (5).png" alt="Malowanie ściany wałkiem" />
-          <div><span>Malowanie</span><h3>Czyste wykończenie</h3></div>
-        </article>
-        <article class="project-card reveal delay-2" data-category="wykonczenie">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_08 (6).png" alt="Układanie drewnianych paneli podłogowych" />
-          <div><span>Podłogi</span><h3>Montaż paneli</h3></div>
-        </article>
-        <article class="project-card reveal" data-category="instalacje">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_08 (7).png" alt="Prace elektryczne w ścianie" />
-          <div><span>Elektryka</span><h3>Instalacje</h3></div>
-        </article>
-        <article class="project-card reveal delay-1" data-category="instalacje">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_08 (8).png" alt="Naprawa rur pod zlewem" />
-          <div><span>Hydraulika</span><h3>Biały montaż</h3></div>
-        </article>
+        <button class="gallery-card gallery-card--wide reveal" type="button" data-category="remont" data-image="ChatGPT Image 16 cze 2026, 20_00_06 (1).png" aria-label="Powiększ zdjęcie: przygotowanie wnętrza">
+          <img src="ChatGPT Image 16 cze 2026, 20_00_06 (1).png" alt="Wnętrze w trakcie kompleksowego remontu" loading="lazy" />
+          <span><small>Remont generalny</small><strong>Przygotowanie wnętrza</strong></span>
+        </button>
+
+        <button class="gallery-card reveal delay-1" type="button" data-category="remont" data-image="ChatGPT Image 16 cze 2026, 20_00_06 (2).png" aria-label="Powiększ zdjęcie: gładzie i tynki">
+          <img src="ChatGPT Image 16 cze 2026, 20_00_06 (2).png" alt="Nakładanie gładzi na ścianę" loading="lazy" />
+          <span><small>Ściany</small><strong>Gładzie i tynki</strong></span>
+        </button>
+
+        <button class="gallery-card gallery-card--tall reveal delay-2" type="button" data-category="wykonczenie" data-image="ChatGPT Image 16 cze 2026, 20_00_07 (3).png" aria-label="Powiększ zdjęcie: wykończona łazienka">
+          <img src="ChatGPT Image 16 cze 2026, 20_00_07 (3).png" alt="Nowoczesna wykończona łazienka" loading="lazy" />
+          <span><small>Łazienka</small><strong>Efekt końcowy</strong></span>
+        </button>
+
+        <button class="gallery-card reveal" type="button" data-category="wykonczenie" data-image="ChatGPT Image 16 cze 2026, 20_00_07 (4).png" aria-label="Powiększ zdjęcie: układanie płytek">
+          <img src="ChatGPT Image 16 cze 2026, 20_00_07 (4).png" alt="Precyzyjne układanie płytek podłogowych" loading="lazy" />
+          <span><small>Płytki</small><strong>Precyzyjne układanie</strong></span>
+        </button>
+
+        <button class="gallery-card reveal delay-1" type="button" data-category="wykonczenie" data-image="ChatGPT Image 16 cze 2026, 20_00_07 (5).png" aria-label="Powiększ zdjęcie: prace malarskie">
+          <img src="ChatGPT Image 16 cze 2026, 20_00_07 (5).png" alt="Prace malarskie w remontowanym wnętrzu" loading="lazy" />
+          <span><small>Malowanie</small><strong>Czyste wykończenie</strong></span>
+        </button>
+
+        <button class="gallery-card gallery-card--wide reveal delay-2" type="button" data-category="wykonczenie" data-image="ChatGPT Image 16 cze 2026, 20_00_08 (6).png" aria-label="Powiększ zdjęcie: montaż podłogi">
+          <img src="ChatGPT Image 16 cze 2026, 20_00_08 (6).png" alt="Montaż drewnianej podłogi" loading="lazy" />
+          <span><small>Podłogi</small><strong>Montaż paneli i desek</strong></span>
+        </button>
+
+        <button class="gallery-card reveal" type="button" data-category="instalacje" data-image="ChatGPT Image 16 cze 2026, 20_00_08 (7).png" aria-label="Powiększ zdjęcie: instalacja elektryczna">
+          <img src="ChatGPT Image 16 cze 2026, 20_00_08 (7).png" alt="Montaż instalacji elektrycznej" loading="lazy" />
+          <span><small>Elektryka</small><strong>Nowe instalacje</strong></span>
+        </button>
+
+        <button class="gallery-card reveal delay-1" type="button" data-category="instalacje" data-image="ChatGPT Image 16 cze 2026, 20_00_08 (8).png" aria-label="Powiększ zdjęcie: prace hydrauliczne">
+          <img src="ChatGPT Image 16 cze 2026, 20_00_08 (8).png" alt="Montaż instalacji hydraulicznej" loading="lazy" />
+          <span><small>Hydraulika</small><strong>Biały montaż</strong></span>
+        </button>
       </div>
     </section>
 
-    <section class="section process">
+    <section class="section process" id="proces">
       <div class="section__head reveal">
-        <p class="eyebrow">Proces</p>
-        <h2>Jak wygląda współpraca?</h2>
+        <p class="eyebrow">Współpraca</p>
+        <h2>Cztery proste etapy do gotowego wnętrza.</h2>
       </div>
 
-      <div class="timeline">
-        <div class="timeline__item reveal"><span>01</span><h3>Kontakt i zakres</h3><p>Ustalamy, czego dotyczy remont, jaki jest metraż i oczekiwany termin.</p></div>
-        <div class="timeline__item reveal delay-1"><span>02</span><h3>Wycena i materiały</h3><p>Dobieramy zakres prac, materiały i kolejność realizacji.</p></div>
-        <div class="timeline__item reveal delay-2"><span>03</span><h3>Realizacja</h3><p>Prace wykonujemy etapowo, dbając o porządek i komunikację.</p></div>
-        <div class="timeline__item reveal delay-3"><span>04</span><h3>Odbiór</h3><p>Sprawdzamy detale, porządkujemy miejsce prac i oddajemy gotową przestrzeń.</p></div>
+      <div class="process__grid">
+        <article class="process-card reveal"><span>01</span><h3>Kontakt i oględziny</h3><p>Ustalamy metraż, zakres prac, oczekiwany efekt i możliwy termin realizacji.</p></article>
+        <article class="process-card reveal delay-1"><span>02</span><h3>Wycena i plan</h3><p>Określamy kolejność prac, potrzebne materiały i przejrzyste warunki współpracy.</p></article>
+        <article class="process-card reveal delay-2"><span>03</span><h3>Realizacja</h3><p>Wykonujemy kolejne etapy, dbając o jakość, porządek i bieżący kontakt.</p></article>
+        <article class="process-card reveal delay-3"><span>04</span><h3>Odbiór</h3><p>Sprawdzamy detale, porządkujemy miejsce prac i przekazujemy gotowe wnętrze.</p></article>
       </div>
     </section>
 
     <section class="section reviews" id="opinie">
-      <div class="section__head reveal">
-        <p class="eyebrow">Opinie</p>
-        <h2>Klienci oceniają firmę na 5,0</h2>
+      <div class="section__head section__head--split reveal">
+        <div>
+          <p class="eyebrow">Opinie</p>
+          <h2>Klienci oceniają firmę na 5,0.</h2>
+        </div>
+        <div class="rating"><strong>5,0</strong><span>★★★★★</span><small>na podstawie 7 opinii</small></div>
       </div>
 
-      <div class="reviews__grid">
-        <article class="review-card reveal">
-          <div class="stars">★★★★★</div>
-          <p>„Prace zostały zrealizowane zgodnie z umową, a co najważniejsze — terminowo. Ogromna staranność i dbałość o detale.”</p>
-          <strong>Ewa Kotala</strong>
-        </article>
-        <article class="review-card reveal delay-1">
-          <div class="stars">★★★★★</div>
-          <p>„Sprawnie, szybko, kompleksowo w każdym aspekcie. Prace remontowe, elektryka, hydraulika, dobry kontakt i porządek.”</p>
-          <strong>Krzysztof Bąk</strong>
-        </article>
-        <article class="review-card reveal delay-2">
-          <div class="stars">★★★★★</div>
-          <p>„Solidność, fachowość i tempo remontu. Pomoc techniczna przy wyborze materiałów i staranność detali.”</p>
-          <strong>Jan Gawin</strong>
-        </article>
-        <article class="review-card reveal delay-3">
-          <div class="stars">★★★★★</div>
-          <p>„Remont lokalu wykonany bardzo solidnie i z dużą starannością. Wszystko zgodnie z ustaleniami, świetny efekt końcowy.”</p>
-          <strong>Julia Hencel</strong>
-        </article>
+      <div class="reviews__track">
+        <article class="review reveal"><div>★★★★★</div><p>„Prace zostały zrealizowane zgodnie z umową, a co najważniejsze — terminowo. Ogromna staranność i dbałość o detale.”</p><strong>Ewa Kotala</strong></article>
+        <article class="review reveal delay-1"><div>★★★★★</div><p>„Sprawnie, szybko, kompleksowo w każdym aspekcie. Dobry kontakt i porządek po zakończeniu prac.”</p><strong>Krzysztof Bąk</strong></article>
+        <article class="review reveal delay-2"><div>★★★★★</div><p>„Solidność, fachowość i tempo remontu. Pomoc techniczna przy wyborze materiałów i staranność wykonania.”</p><strong>Jan Gawin</strong></article>
+        <article class="review reveal"><div>★★★★★</div><p>„Remont lokalu wykonany bardzo solidnie. Wszystko zgodnie z ustaleniami, a efekt końcowy świetny.”</p><strong>Julia Hencel</strong></article>
       </div>
     </section>
 
     <section class="contact" id="kontakt">
-      <div class="contact__inner reveal">
-        <p class="eyebrow">Kontakt</p>
-        <h2>Potrzebujesz remontu w Chorzowie lub okolicy?</h2>
-        <p>Opisz krótko zakres prac, metraż i termin. Przygotujemy wstępną wycenę oraz propozycję realizacji.</p>
+      <div class="contact__bg" aria-hidden="true">
+        <img src="ChatGPT Image 16 cze 2026, 20_00_07 (3).png" alt="" loading="lazy" />
+      </div>
+      <div class="contact__shade" aria-hidden="true"></div>
+
+      <div class="contact__content reveal">
+        <img class="contact__logo" src="4 sciany logo.jpg" alt="4 ŚCIANY+ Remonty Kompleksowe" />
+        <p class="eyebrow eyebrow--light">Bezpłatna wstępna wycena</p>
+        <h2>Masz mieszkanie, dom lub lokal do remontu?</h2>
+        <p>Opisz zakres prac, metraż i planowany termin. Otrzymasz wstępną informację o możliwościach realizacji.</p>
+
         <div class="contact__actions">
-          <a href="tel:+48000000000" class="btn btn--primary">Zadzwoń</a>
-          <a href="mailto:kontakt@4scianyplus.pl" class="btn btn--ghost">Napisz e-mail</a>
+          <!-- Podmień numer telefonu poniżej na właściwy numer firmy. -->
+          <a class="btn btn--primary" href="tel:+48000000000">Zadzwoń</a>
+          <!-- Podmień adres e-mail poniżej na właściwy adres firmy. -->
+          <a class="btn btn--glass" href="mailto:kontakt@4sciany-remonty.pl">Napisz e-mail</a>
         </div>
-        <small>Telefon i adres e-mail podmień w kodzie na dane firmy.</small>
+        <small class="contact__note">Numer telefonu i adres e-mail można łatwo zmienić w pliku index.html.</small>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p><strong>Kompleksowe Remonty 4 ŚCIANY+</strong></p>
-    <p>Usługi remontowo-budowlane w Chorzowie</p>
-    <a href="#home" class="to-top" aria-label="Wróć na górę">↑</a>
+    <a class="footer__brand" href="#home"><img src="4 sciany logo.jpg" alt="Logo 4 ŚCIANY+" /></a>
+    <p>Kompleksowe remonty mieszkań, domów i lokali w Chorzowie i okolicy.</p>
+    <div class="footer__links">
+      <a href="#uslugi">Usługi</a>
+      <a href="#realizacje">Realizacje</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+    <span>© <span id="year"></span> 4 ŚCIANY+. Wszelkie prawa zastrzeżone.</span>
   </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Zamknij podgląd">×</button>
+    <img id="lightboxImage" src="" alt="Powiększone zdjęcie realizacji" />
+  </div>
 
   <script src="script.js"></script>
 </body>
