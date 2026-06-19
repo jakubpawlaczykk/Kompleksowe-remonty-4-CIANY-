@@ -105,3 +105,81 @@ document.addEventListener('keydown', event => {
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+
+// DODATKOWE EFEKTY WIZUALNE
+const scrollProgress = document.getElementById('scrollProgress');
+const cursorGlow = document.getElementById('cursorGlow');
+const lazyImages = document.querySelectorAll('.lazy-img');
+const counters = document.querySelectorAll('[data-counter]');
+
+const updateProgress = () => {
+  if (!scrollProgress) return;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+  scrollProgress.style.width = `${progress}%`;
+};
+
+updateProgress();
+window.addEventListener('scroll', updateProgress, { passive: true });
+
+window.addEventListener('pointermove', event => {
+  if (!cursorGlow || window.matchMedia('(max-width: 860px)').matches) return;
+  cursorGlow.style.left = `${event.clientX}px`;
+  cursorGlow.style.top = `${event.clientY}px`;
+}, { passive: true });
+
+lazyImages.forEach(img => {
+  const markReady = () => {
+    img.classList.add('is-loaded');
+    img.closest('.gallery-card, .about__image')?.classList.add('image-ready');
+  };
+
+  if (img.complete) {
+    window.setTimeout(markReady, 120);
+  } else {
+    img.addEventListener('load', markReady, { once: true });
+    img.addEventListener('error', markReady, { once: true });
+  }
+});
+
+galleryCards.forEach(card => {
+  card.addEventListener('pointermove', event => {
+    const rect = card.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mx', `${x}%`);
+    card.style.setProperty('--my', `${y}%`);
+  });
+});
+
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+
+    const element = entry.target;
+    const target = Number(element.dataset.counter || 0);
+    const isRating = target === 5;
+    const duration = 1100;
+    const start = performance.now();
+
+    const tick = now => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = target * eased;
+
+      if (isRating) {
+        element.textContent = value.toFixed(1).replace('.', ',');
+      } else {
+        element.textContent = `${Math.round(value)}${target === 58 ? '+' : ''}`;
+      }
+
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+    counterObserver.unobserve(element);
+  });
+}, { threshold: .65 });
+
+counters.forEach(counter => counterObserver.observe(counter));

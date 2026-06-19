@@ -15,8 +15,12 @@
 </head>
 <body>
   <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__ring"></div>
     <img src="4 sciany logo.jpg" alt="" />
+    <span>Ładowanie realizacji</span>
   </div>
+
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 
   <header class="site-header" id="header">
     <a class="brand" href="#home" aria-label="4 ŚCIANY+ — strona główna">
@@ -38,12 +42,19 @@
     </button>
   </header>
 
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
   <main>
     <section class="hero" id="home">
       <div class="hero__media" aria-hidden="true">
         <img src="ChatGPT Image 16 cze 2026, 20_00_06 (1).png" alt="" />
       </div>
       <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__orbs" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
       <div class="hero__content reveal-hero">
         <p class="eyebrow eyebrow--light">Usługi remontowo-budowlane • Chorzów i okolice</p>
@@ -56,9 +67,9 @@
         </div>
 
         <div class="hero__stats" aria-label="Najważniejsze informacje o firmie">
-          <div><strong>5,0</strong><span>ocena klientów</span></div>
-          <div><strong>7</strong><span>opinii</span></div>
-          <div><strong>58+</strong><span>zdjęć realizacji</span></div>
+          <div><strong data-counter="5">0</strong><span>ocena klientów</span></div>
+          <div><strong data-counter="7">0</strong><span>opinii</span></div>
+          <div><strong data-counter="58">0</strong><span>zdjęć realizacji</span></div>
         </div>
       </div>
 
@@ -95,7 +106,7 @@
         </div>
 
         <div class="about__image reveal delay-1">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_06 (2).png" alt="Wykonywanie gładzi na ścianie" loading="lazy" />
+          <img class="lazy-img" src="ChatGPT Image 16 cze 2026, 20_00_06 (2).png" alt="Wykonywanie gładzi na ścianie" loading="lazy" />
           <div class="about__badge">
             <strong>4 ŚCIANY+</strong>
             <span>remont od A do Z</span>
@@ -157,42 +168,42 @@
 
       <div class="gallery__grid">
         <button class="gallery-card gallery-card--wide reveal" type="button" data-category="remont" data-image="ChatGPT Image 16 cze 2026, 20_00_06 (1).png" aria-label="Powiększ zdjęcie: przygotowanie wnętrza">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_06 (1).png" alt="Wnętrze w trakcie kompleksowego remontu" loading="lazy" />
+          <img class="lazy-img" src="ChatGPT Image 16 cze 2026, 20_00_06 (1).png" alt="Wnętrze w trakcie kompleksowego remontu" loading="lazy" />
           <span><small>Remont generalny</small><strong>Przygotowanie wnętrza</strong></span>
         </button>
 
         <button class="gallery-card reveal delay-1" type="button" data-category="remont" data-image="ChatGPT Image 16 cze 2026, 20_00_06 (2).png" aria-label="Powiększ zdjęcie: gładzie i tynki">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_06 (2).png" alt="Nakładanie gładzi na ścianę" loading="lazy" />
+          <img class="lazy-img" src="ChatGPT Image 16 cze 2026, 20_00_06 (2).png" alt="Nakładanie gładzi na ścianę" loading="lazy" />
           <span><small>Ściany</small><strong>Gładzie i tynki</strong></span>
         </button>
 
         <button class="gallery-card gallery-card--tall reveal delay-2" type="button" data-category="wykonczenie" data-image="ChatGPT Image 16 cze 2026, 20_00_07 (3).png" aria-label="Powiększ zdjęcie: wykończona łazienka">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_07 (3).png" alt="Nowoczesna wykończona łazienka" loading="lazy" />
+          <img class="lazy-img" src="ChatGPT Image 16 cze 2026, 20_00_07 (3).png" alt="Nowoczesna wykończona łazienka" loading="lazy" />
           <span><small>Łazienka</small><strong>Efekt końcowy</strong></span>
         </button>
 
         <button class="gallery-card reveal" type="button" data-category="wykonczenie" data-image="ChatGPT Image 16 cze 2026, 20_00_07 (4).png" aria-label="Powiększ zdjęcie: układanie płytek">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_07 (4).png" alt="Precyzyjne układanie płytek podłogowych" loading="lazy" />
+          <img class="lazy-img" src="ChatGPT Image 16 cze 2026, 20_00_07 (4).png" alt="Precyzyjne układanie płytek podłogowych" loading="lazy" />
           <span><small>Płytki</small><strong>Precyzyjne układanie</strong></span>
         </button>
 
         <button class="gallery-card reveal delay-1" type="button" data-category="wykonczenie" data-image="ChatGPT Image 16 cze 2026, 20_00_07 (5).png" aria-label="Powiększ zdjęcie: prace malarskie">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_07 (5).png" alt="Prace malarskie w remontowanym wnętrzu" loading="lazy" />
+          <img class="lazy-img" src="ChatGPT Image 16 cze 2026, 20_00_07 (5).png" alt="Prace malarskie w remontowanym wnętrzu" loading="lazy" />
           <span><small>Malowanie</small><strong>Czyste wykończenie</strong></span>
         </button>
 
         <button class="gallery-card gallery-card--wide reveal delay-2" type="button" data-category="wykonczenie" data-image="ChatGPT Image 16 cze 2026, 20_00_08 (6).png" aria-label="Powiększ zdjęcie: montaż podłogi">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_08 (6).png" alt="Montaż drewnianej podłogi" loading="lazy" />
+          <img class="lazy-img" src="ChatGPT Image 16 cze 2026, 20_00_08 (6).png" alt="Montaż drewnianej podłogi" loading="lazy" />
           <span><small>Podłogi</small><strong>Montaż paneli i desek</strong></span>
         </button>
 
         <button class="gallery-card reveal" type="button" data-category="instalacje" data-image="ChatGPT Image 16 cze 2026, 20_00_08 (7).png" aria-label="Powiększ zdjęcie: instalacja elektryczna">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_08 (7).png" alt="Montaż instalacji elektrycznej" loading="lazy" />
+          <img class="lazy-img" src="ChatGPT Image 16 cze 2026, 20_00_08 (7).png" alt="Montaż instalacji elektrycznej" loading="lazy" />
           <span><small>Elektryka</small><strong>Nowe instalacje</strong></span>
         </button>
 
         <button class="gallery-card reveal delay-1" type="button" data-category="instalacje" data-image="ChatGPT Image 16 cze 2026, 20_00_08 (8).png" aria-label="Powiększ zdjęcie: prace hydrauliczne">
-          <img src="ChatGPT Image 16 cze 2026, 20_00_08 (8).png" alt="Montaż instalacji hydraulicznej" loading="lazy" />
+          <img class="lazy-img" src="ChatGPT Image 16 cze 2026, 20_00_08 (8).png" alt="Montaż instalacji hydraulicznej" loading="lazy" />
           <span><small>Hydraulika</small><strong>Biały montaż</strong></span>
         </button>
       </div>
@@ -231,7 +242,7 @@
 
     <section class="contact" id="kontakt">
       <div class="contact__bg" aria-hidden="true">
-        <img src="ChatGPT Image 16 cze 2026, 20_00_07 (3).png" alt="" loading="lazy" />
+        <img class="lazy-img" src="ChatGPT Image 16 cze 2026, 20_00_07 (3).png" alt="" loading="lazy" />
       </div>
       <div class="contact__shade" aria-hidden="true"></div>
 
